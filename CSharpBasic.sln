@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpBasic_PrimitivetypesExpression", "CSharpBasic_PrimitivetypesExpression\CSharpBasic_PrimitivetypesExpression.csproj", "{BED59DEB-E67F-4FD7-8487-D38D119BEFC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpBasic_NonPrimitiveTypes", "CSharpBasic_NonPrimitiveTypes\CSharpBasic_NonPrimitiveTypes.csproj", "{70C130E0-F6B9-483E-A2DA-0BA19B593564}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BED59DEB-E67F-4FD7-8487-D38D119BEFC7}.Debug|x86.ActiveCfg = Debug|x86
+		{BED59DEB-E67F-4FD7-8487-D38D119BEFC7}.Debug|x86.Build.0 = Debug|x86
+		{BED59DEB-E67F-4FD7-8487-D38D119BEFC7}.Release|x86.ActiveCfg = Release|x86
+		{BED59DEB-E67F-4FD7-8487-D38D119BEFC7}.Release|x86.Build.0 = Release|x86
+		{70C130E0-F6B9-483E-A2DA-0BA19B593564}.Debug|x86.ActiveCfg = Debug|x86
+		{70C130E0-F6B9-483E-A2DA-0BA19B593564}.Debug|x86.Build.0 = Debug|x86
+		{70C130E0-F6B9-483E-A2DA-0BA19B593564}.Release|x86.ActiveCfg = Release|x86
+		{70C130E0-F6B9-483E-A2DA-0BA19B593564}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
