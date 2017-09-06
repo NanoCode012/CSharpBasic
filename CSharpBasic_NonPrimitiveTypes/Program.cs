@@ -59,8 +59,9 @@ D:\folder9\folder10."; //use @ sign to render escape signs useless
             WriteLine((int)deliver);
             var deliveryID = 2;
             WriteLine((ShippingMethods)deliveryID);//Cast, change int to enum
+            WriteLine(CheckExit(2));//this works too!
             WriteLine(System.Convert.ToString(deliver));//Change enum to string
-            WriteLine(deliver.ToString());//Same as above, without System
+            WriteLine(deliver.ToString());//Same as above, without System namespace
             //Parse from string to enum
             var deliverName = "Nuggat";
             var DeliverName = (ShippingMethods)System.Enum.Parse(typeof(ShippingMethods), deliverName);
@@ -91,6 +92,28 @@ D:\folder9\folder10."; //use @ sign to render escape signs useless
         public static void Oldify(Car car)  //testing with reference types
         {                                   //Car is class, reference point for 
             car.Age += 20;                  //object 'car' is copied
+        }
+
+        //Apparently, not the same topic, should I move?
+        public static ShippingMethods CheckExit(int a)
+        {
+            ShippingMethods typo;
+            switch (a)
+            {
+                case 0:
+                    typo = ShippingMethods.WeGo;
+                    break;
+                case 1:
+                    typo = ShippingMethods.Nuggat;
+                    break;
+                case 2:
+                    typo = ShippingMethods.NotsoFast;
+                    break;
+                default:
+                    typo = ShippingMethods.WeGo;
+                    break;
+            }
+            return typo;
         }
 
 
