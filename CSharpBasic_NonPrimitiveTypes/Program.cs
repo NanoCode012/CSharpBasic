@@ -4,7 +4,7 @@ using static System.Console; //suggested by Intellisense(IS)
 
 namespace CSharpBasic_NonPrimitiveTypes
 {
-	enum ShippingMethods
+	public enum ShippingMethods
 	{
 		WeGo = 0,
 		Nuggat = 1,
@@ -59,7 +59,7 @@ D:\folder9\folder10."; //use @ sign to render escape signs useless
             WriteLine((int)deliver);
             var deliveryID = 2;
             WriteLine((ShippingMethods)deliveryID);//Cast, change int to enum
-            WriteLine(CheckExit(2));//this works too!
+            WriteLine(CheckExit(2));//Another way of doing the above, but complex
             WriteLine(System.Convert.ToString(deliver));//Change enum to string
             WriteLine(deliver.ToString());//Same as above, without System namespace
             //Parse from string to enum
@@ -94,33 +94,30 @@ D:\folder9\folder10."; //use @ sign to render escape signs useless
             car.Age += 20;                  //object 'car' is copied
         }
 
-        //Apparently, not the same topic, should I move?
-        public static ShippingMethods CheckExit(int a)
-        {
-            ShippingMethods typo;
-            switch (a)
-            {
-                case 0:
-                    typo = ShippingMethods.WeGo;
-                    break;
-                case 1:
-                    typo = ShippingMethods.Nuggat;
-                    break;
-                case 2:
-                    typo = ShippingMethods.NotsoFast;
-                    break;
-                default:
-                    typo = ShippingMethods.WeGo;
-                    break;
-            }
-            return typo;
-        }
-
-
-
-
+		//Something a little extra, not quite in right section, but meh!
+		public static ShippingMethods CheckExit(int a)
+		{
+			ShippingMethods typo;
+			switch (a)
+			{
+				case 0:
+					typo = ShippingMethods.WeGo;
+					break;
+				case 1:
+					typo = ShippingMethods.Nuggat;
+					break;
+				case 2:
+					typo = ShippingMethods.NotsoFast;
+					break;
+				default:
+					typo = ShippingMethods.WeGo;
+					break;
+			}
+			return typo;
+		}
     }
 
+	
 	public class Point
 	{
 		public int X;
