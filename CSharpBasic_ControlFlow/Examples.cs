@@ -9,12 +9,13 @@ namespace CSharpBasic_ControlFlow
 		public void Reveal()
         {
 			Console.WriteLine("==========================");
-            ConsoleKeyInfo state = Console.ReadKey();//I have no idea how this works
-            if (state.Key == ConsoleKey.Enter)//scan per letter?
+            ConsoleKeyInfo state = Console.ReadKey();//I have no idea how this works XD
+            if (state.Key == ConsoleKey.Enter)//scans key value
             {
                 Console.WriteLine("Enter pressed!");
             }
-            else Console.ReadLine();
+            else Console.ReadLine();//my Exception handling, if they didn't 
+                                    //press Enter, they'll have to press it anyways XD
             Mission1();
         }
 
@@ -25,8 +26,9 @@ namespace CSharpBasic_ControlFlow
 		public void Mission1()
         {
 			Console.WriteLine("Press a number between 1->10.");
-            var numberEntered = Console.ReadLine();
-            if (Convert.ToInt32(numberEntered) < 0 ||
+            var numberEntered = Console.ReadLine();//I'm keeping numberEntered as 
+												   //string to remember this lesson
+			if (Convert.ToInt32(numberEntered) < 1 || 
                 Convert.ToInt32(numberEntered) > 10)
 			{
 				Console.WriteLine("Error! Not within specified range!");
@@ -47,7 +49,7 @@ namespace CSharpBasic_ControlFlow
 			Console.WriteLine("Please type one number, press enter and repeat once");
             var firstNumber = Convert.ToInt32(Console.ReadLine());
 			var secondNumber = Convert.ToInt32(Console.ReadLine());
-            if (firstNumber>secondNumber)
+            if (firstNumber>=secondNumber)
             {
                 Console.WriteLine(firstNumber + " is bigger");
             }else
@@ -67,7 +69,7 @@ namespace CSharpBasic_ControlFlow
             Console.WriteLine("Now please enter height");
             var height = Console.ReadLine();
             Orientation orientation;
-            if (Convert.ToInt32(width)>Convert.ToInt32(height))
+            if (Convert.ToInt32(width)>=Convert.ToInt32(height))
             {
                 orientation = Orientation.Landscape;
             }else
@@ -99,29 +101,35 @@ namespace CSharpBasic_ControlFlow
         {
 			Console.WriteLine("Catch you Now");
             Console.WriteLine("Please enter speed limit of road");
-            var limitSpeed = Console.ReadLine();
+            var limitSpeed = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Please enter your speed");
-            var currentSpeed = Console.ReadLine();
-            if (Convert.ToInt32(currentSpeed)>=Convert.ToInt32(limitSpeed))
+            var currentSpeed = Convert.ToInt32(Console.ReadLine());
+            if (currentSpeed >= limitSpeed)
             {
                 Console.WriteLine("Warning! You're over limit! SlowDown!!");
                 Console.WriteLine("Calculating points deduction...");
                 Console.ReadLine();
                 const int kmperpoints = 5;
-                float points = (Convert.ToInt32(currentSpeed) 
-                                - Convert.ToInt32(limitSpeed)) / kmperpoints;
+                float points = (currentSpeed - limitSpeed) / kmperpoints;
                 if (points < 1.0f)
                 {
                     Console.WriteLine("You were warned! Don't do it again!");
-                }else if (points >= 1.0f && points < 12.0f)
+                }
+                else if (points >= 1.0f && points < 12.0f)
                 {
                     Console.WriteLine("You have now been deducted " + points);
-                }else if (points >= 12.0f)
+                }
+                else if (points >= 12.0f)
                 {
                     Console.WriteLine("License Rescended");
                 }
-            }else Console.WriteLine("You pass. Thx for obeying the law!");
+            }
+            else
+            {
+                Console.WriteLine("You pass. Thx for obeying the law!");
+            }                
         }
+
     }
 }
         
