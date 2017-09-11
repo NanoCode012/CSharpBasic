@@ -22,14 +22,13 @@ namespace CSharpBasic_ControlFlow
             }
             Console.WriteLine(divisibleCounter + " are the numbers that have 3 as a LCM");
             Console.WriteLine("{0} numbers have a LCM of 3", divisibleCounter);
-            Mission2();
         }
         /// <summary>
         /// Write a program and continuously ask the user to enter a number or 
         /// "ok" to exit. Calculate the sum of all the previously entered 
         /// numbers and display it on the console.
         /// </summary>
-        void Mission2()
+        public void Mission2()
         {
             int total = 0;
             while (true)
@@ -49,7 +48,6 @@ namespace CSharpBasic_ControlFlow
                 }
             }
             Console.WriteLine("total is " + total);
-            Mission3();
         }
 
 		/// <summary>
@@ -58,7 +56,7 @@ namespace CSharpBasic_ControlFlow
         /// if the user enters 5, the program should calculate 5 x 4 x 3 x 2 x 1 
         /// and display it as 5! = 120.
 		/// </summary>
-		void Mission3()
+		public void Mission3()
         {
             Console.WriteLine("Please enter a natural number : ");
             var input2 = Convert.ToInt32(Console.ReadLine());
@@ -68,8 +66,6 @@ namespace CSharpBasic_ControlFlow
                 factorial *= i;
             }
             Console.WriteLine(input2 + "! = " + factorial);//Can use String format here
-            Mission4();
-
         }
 
 		/// <summary>
@@ -79,7 +75,7 @@ namespace CSharpBasic_ControlFlow
         /// sure the program is behaving correctly, you can display the secret 
         /// number on the console first.)
 		/// </summary>
-		void Mission4()
+		public void Mission4()
         {
             var random = new Random();
             var secretNumber = random.Next(1,11);
@@ -104,9 +100,7 @@ namespace CSharpBasic_ControlFlow
                 {
                     Console.WriteLine("You Lose!");
                 }
-
             }
-            Mission5();
         }
 
         /// <summary>
@@ -115,7 +109,7 @@ namespace CSharpBasic_ControlFlow
         /// on the console. For example, if the user enters “5, 3, 8, 1, 4", the 
         /// program should display 8.
         /// </summary>
-        void Mission5()
+        public void Mission5()
         {
             Console.WriteLine("Please enter an array of numbers(use comma to seperate) :");
             var lineList = Console.ReadLine();

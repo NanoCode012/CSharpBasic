@@ -16,7 +16,6 @@ namespace CSharpBasic_ControlFlow
             }
             else Console.ReadLine();//my Exception handling, if they didn't 
                                     //press Enter, they'll have to press it anyways XD
-            Mission1();
         }
 
 		///<summary>
@@ -37,7 +36,6 @@ namespace CSharpBasic_ControlFlow
 			{
 				Console.WriteLine("Thank yoU! You pressed on " +numberEntered);
 			}
-            Mission2();
 
         }
 
@@ -56,7 +54,6 @@ namespace CSharpBasic_ControlFlow
             {
                 Console.WriteLine(secondNumber + " is bigger");
             }
-            Mission3();
 		}
 
 		///<summary>
@@ -77,7 +74,6 @@ namespace CSharpBasic_ControlFlow
                 orientation = Orientation.Portrait;
             }
             Console.WriteLine("This picture is in " + orientation);
-            Mission4();
 		}
         enum Orientation
         {

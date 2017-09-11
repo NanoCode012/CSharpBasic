@@ -70,13 +70,16 @@ namespace CSharpBasic_ControlFlow
                     Console.WriteLine("FEASTING V2!");
                     break;
             }
-            /* Remove when you want to access Example.cs
-            //Constructor
+            ///Constructor
             Examples example = new Examples();//optional is to make Example static
-            example.Reveal();//Start method in Example class */
+            //example.Mission1();
+            //example.Mission2();
+            //example.Mission3();
+            //example.Mission4();
 
-            //For loops
-            for (var i = 1; i <= 10; i++)
+
+			//For loops
+			for (var i = 1; i <= 10; i++)
             {
                 if (i % 2 == 0)
                 {
@@ -209,9 +212,13 @@ namespace CSharpBasic_ControlFlow
             Console.WriteLine("4 : " + password4);
             Console.WriteLine("5 : " + password5);
 
-			////Constructor
-			Examples2 example2 = new Examples2();
-			example2.Mission1();
+			///Constructor
+			Examples2 examples2 = new Examples2();
+			//examples2.Mission1();
+            //examples2.Mission2();
+            //examples2.Mission3();
+            //examples2.Mission4();
+            //examples2.Mission5();
 
 		}
     }
