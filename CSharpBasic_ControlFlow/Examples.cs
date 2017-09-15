@@ -5,43 +5,51 @@ namespace CSharpBasic_ControlFlow
     {
 
 		///<summary>
-		///Goal: Get used to function of Input of Console for c#</summary>
+		///Goal: Experimenting ConsoleKeyInfo and initializing it the correct way
+        ///</summary>
 		public void Reveal()
         {
 			Console.WriteLine("==========================");
-            ConsoleKeyInfo state = Console.ReadKey();//I have no idea how this works XD
-            if (state.Key == ConsoleKey.Enter)//scans key value
+            Console.WriteLine("Press enter!");
+            //ConsoleKeyInfo state = Console.ReadKey();//this was done wrong, need
+            //to initialize, comment kept here for this mistake to be remembered
+            ConsoleKeyInfo states = new ConsoleKeyInfo();
+            states = Console.ReadKey();
+            if (states.Key == ConsoleKey.Enter)//scans states if key pressed was space
             {
                 Console.WriteLine("Enter pressed!");
             }
-            else Console.ReadLine();//my Exception handling, if they didn't 
-                                    //press Enter, they'll have to press it anyways XD
+            else Console.ReadLine();//my Exception handling, if they didn't press
+                                    //Enter, they'll have to press it anyways XD
         }
 
 		///<summary>
 		///Goal: Write a program and ask the user to enter a number. The 
 		///number should be between 1 to 10. If the user enters a valid number, 
-		///display "Valid" on the console. Otherwise, display "Invalid".</summary>
+		///display "Valid" on the console. Otherwise, display "Invalid".
+        ///</summary>
 		public void Mission1()
         {
 			Console.WriteLine("Press a number between 1->10.");
-            var numberEntered = Console.ReadLine();//I'm keeping numberEntered as 
-												   //string to remember this lesson
-			if (Convert.ToInt32(numberEntered) < 1 || 
-                Convert.ToInt32(numberEntered) > 10)
+            var numberEnteredString = Console.ReadLine();//ReadLine gives you a string
+                                                         //you can't compare strings with int
+            var numberEnteredInteger = Convert.ToInt32(numberEnteredString);//do this easy to read
+            if (numberEnteredInteger < 1 || 
+                numberEnteredInteger > 10)
 			{
 				Console.WriteLine("Error! Not within specified range!");
 			}
 			else
 			{
-				Console.WriteLine("Thank yoU! You pressed on " +numberEntered);
+				Console.WriteLine("Thank you! You pressed on " +numberEnteredString);
 			}
 
         }
 
 		///<summary>
 		///Goal: Write a program which takes two numbers from the console and 
-		///displays the maximum of the two.</summary>
+		///displays the maximum of the two.
+        ///</summary>
 		public void Mission2()
         {
 			Console.WriteLine("Please type one number, press enter and repeat once");
@@ -57,16 +65,17 @@ namespace CSharpBasic_ControlFlow
 		}
 
 		///<summary>
-		///Goal:  Write a program and ask the user to enter the width and 
-		///height of an image. Then tell if the image is landscape or portrait.</summary>
+		///Goal: Write a program and ask the user to enter the width and 
+		///height of an image. Then tell if the image is landscape or portrait.
+        ///summary>
 		public void Mission3()
         {
-			Console.WriteLine("Image properties identifier. Please enter width");
-            var width = Console.ReadLine();
-            Console.WriteLine("Now please enter height");
-            var height = Console.ReadLine();
-            Orientation orientation;
-            if (Convert.ToInt32(width)>=Convert.ToInt32(height))
+            Console.WriteLine("Image properties identifier. Please enter width : ");
+            var width = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Now please enter height : ");
+            var height = Convert.ToInt32(Console.ReadLine());
+            Orientation orientation;//initializing enum
+            if (width>=height)
             {
                 orientation = Orientation.Landscape;
             }else
@@ -92,10 +101,11 @@ namespace CSharpBasic_ControlFlow
 		///points. For every 5km/hr above the speed limit, 1 demerit points 
 		///should be incurred and displayed on the console. If the number of 
 		///demerit points is above 12, the program should display License 
-		///Suspended.</summary>
+		///Suspended.
+        ///</summary>
 		public void Mission4()
         {
-			Console.WriteLine("Catch you Now");
+			Console.WriteLine("**Catch you Now**");
             Console.WriteLine("Please enter speed limit of road");
             var limitSpeed = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Please enter your speed");
@@ -105,8 +115,8 @@ namespace CSharpBasic_ControlFlow
                 Console.WriteLine("Warning! You're over limit! SlowDown!!");
                 Console.WriteLine("Calculating points deduction...");
                 Console.ReadLine();
-                const int kmperpoints = 5;
-                float points = (currentSpeed - limitSpeed) / kmperpoints;
+                const int kmPerPoint = 5;
+                float points = (currentSpeed - limitSpeed) / kmPerPoint;
                 if (points < 1.0f)
                 {
                     Console.WriteLine("You were warned! Don't do it again!");
@@ -117,7 +127,7 @@ namespace CSharpBasic_ControlFlow
                 }
                 else if (points >= 12.0f)
                 {
-                    Console.WriteLine("License Rescended");
+                    Console.WriteLine("License Rescended. GG");
                 }
             }
             else

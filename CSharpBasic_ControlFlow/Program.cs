@@ -208,6 +208,7 @@ namespace CSharpBasic_ControlFlow
 
 			///Constructor
 			Examples examples = new Examples();//optional is to make Examples static
+            //examples.Reveal();
     		//examples.Mission1();
     		//examples.Mission2();
     		//examples.Mission3();
