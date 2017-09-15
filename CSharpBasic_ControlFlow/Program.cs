@@ -40,9 +40,10 @@ namespace CSharpBasic_ControlFlow
             //() inside is condition, ? is if, : is else
             int price3 = (isVip) ? price2 : (price2 + markdown);
             Console.WriteLine("using conditional operators price3 is " + price3);
+
             // switch/case
-            Seasons season = Seasons.Spring;
-            float hungerLevel;
+            Seasons season = Seasons.Spring; //declare enum from different script
+            float hungerLevel = 0f;
             switch (season)
             {
                 case Seasons.Spring:
@@ -57,12 +58,9 @@ namespace CSharpBasic_ControlFlow
                 case Seasons.Winter:
                     hungerLevel = 0.9f;
                     break;
-                default:
-                    hungerLevel = 0.5f;
-                    break;
             }
             Console.WriteLine(hungerLevel);
-            switch (time)//just the same as FEASTING V1, but with switch
+            switch (time)//just the same as FEASTING V1, but using switch
             {
                 case 6:
                 case 12:
@@ -70,18 +68,11 @@ namespace CSharpBasic_ControlFlow
                     Console.WriteLine("FEASTING V2!");
                     break;
             }
-            ///Constructor
-            Examples example = new Examples();//optional is to make Example static
-            //example.Mission1();
-            //example.Mission2();
-            //example.Mission3();
-            //example.Mission4();
-
 
 			//For loops
 			for (var i = 1; i <= 10; i++)
             {
-                if (i % 2 == 0)
+                if (i % 2 == 0)//very useful to remember for later
                 {
                     Console.WriteLine("This is an even number " + i);
                 }
@@ -90,7 +81,7 @@ namespace CSharpBasic_ControlFlow
                     Console.WriteLine("This is an odd number " + i);
                 }
             }
-            for (var i = 10; i >= 1; i--) //reverse of above
+            for (var i = 10; i >= 1; i--)//reverse of above
             {
                 if (i % 2 == 0)
                 {
@@ -122,7 +113,7 @@ namespace CSharpBasic_ControlFlow
             var hisName = "Laddy Hanks";
             foreach (var character in hisName)
             {
-                if (character != ' ')//to skip spaces, learn that one quote for char
+                if (character != ' ')//remember char is one quote
                 {
                     Console.WriteLine(character);
                 }
@@ -134,7 +125,7 @@ namespace CSharpBasic_ControlFlow
 			}
 
             //While loops
-            var counter = 1; //exact scenario as first for loop
+            var counter = 1;//same as first for loop
             while (counter <= 10)
             {
                 if (counter % 2 == 0)
@@ -147,17 +138,20 @@ namespace CSharpBasic_ControlFlow
                 }
                 counter++;
             }
+            //this while loop below is purely experimental, I'm unsure if the method
+            //used is recommeneded or not
+            //ReadKey only reads one key, ReadLine reads a line
             while (true)
             {
 
-                ConsoleKeyInfo keyPressed = new ConsoleKeyInfo();
-                keyPressed = Console.ReadKey(); //I didn't initialize before
+                ConsoleKeyInfo keyPressed = new ConsoleKeyInfo();//don't forget to do this
+                keyPressed = Console.ReadKey();
 
                 if (keyPressed.Key == ConsoleKey.Enter)
                 {
                     break;
                 }
-                Console.WriteLine();//to go to next line
+                Console.WriteLine();//to skip a line, make console more readable
                 Console.WriteLine("You pressed on " + keyPressed.KeyChar);
 
                 Console.Write("Type name : ");
@@ -180,11 +174,11 @@ namespace CSharpBasic_ControlFlow
             //Random class
             const int loopLength = 5;
             var random = new Random();
-            var listData = new int[loopLength];
+            var arrayData = new int[loopLength];
             for (var i = 0; i < loopLength; i++)
             {
-                listData[i] = random.Next();
-                Console.WriteLine(i + " : " + listData[i]);
+                arrayData[i] = random.Next();
+                Console.WriteLine(i + " : " + arrayData[i]);
             }
             for (var i = 0; i < loopLength; i++)
             {
@@ -213,6 +207,11 @@ namespace CSharpBasic_ControlFlow
             Console.WriteLine("5 : " + password5);
 
 			///Constructor
+			Examples examples = new Examples();//optional is to make Examples static
+    		//examples.Mission1();
+    		//examples.Mission2();
+    		//examples.Mission3();
+    		//examples.Mission4();
 			Examples2 examples2 = new Examples2();
 			//examples2.Mission1();
             //examples2.Mission2();
