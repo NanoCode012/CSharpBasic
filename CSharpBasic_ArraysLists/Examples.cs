@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace CSharpBasic_ArraysLists
 {
     class Examples
@@ -25,7 +26,7 @@ namespace CSharpBasic_ArraysLists
                 }
                 fbNameList.Add(input);
             }
-            switch (fbNameList.Count)//Can be optimized, but use switch to be familiar
+            switch (fbNameList.Count)
             {
                 case 0:
                     Console.WriteLine("No one liked your post. Check again later.");
@@ -35,6 +36,8 @@ namespace CSharpBasic_ArraysLists
                     break;
                 case 2:
                     Console.WriteLine("{0} and {1} like your post.", fbNameList[0], fbNameList[1]);
+                    break;
+                default :
                     break;
             }
             if (fbNameList.Count > 2)
@@ -53,36 +56,46 @@ namespace CSharpBasic_ArraysLists
         {
             Console.WriteLine("Please enter YOUR name : ");
             var input2 = Console.ReadLine();
-			//method1
-			var reverseArray = new string[input2.Length];
-            var count = 0;
-            foreach (var character in input2)
-            {
-                reverseArray[count] = character.ToString();
-                count++;
-            }
-            Array.Reverse(reverseArray);
-            var reverseString = String.Join("", reverseArray);
-			Console.WriteLine("Here's your name in reverse : " + reverseString.ToLower());
+            //method1
+            var reverseString = ReverseName(input2);
+            Console.WriteLine("Here's your name in reverse : " + reverseString.ToLower());
 			//method2
-			var reverseArray2 = new char[input2.Length];
-            for (var i = input2.Length; i > 0; i--)
-            {
-                reverseArray2[input2.Length - i] = input2[i - 1];
-                //Manually reversing values between two arrays
-                //reverse# goes up, input# goes down
-            }
-            var reverseString2 = new string(reverseArray2);
+            var reverseString2 = ReverseName2(input2);
             Console.WriteLine("Your reversed name : " + reverseString2);
         }
 
-		/// <summary>
-		/// Write a program and ask the user to enter 5 numbers. If a number has 
+        static string ReverseName(string input)
+        {
+			var reverseArray = new string[input.Length];
+			var count = 0;
+			foreach (var character in input)
+			{
+				reverseArray[count] = character.ToString();
+				count++;
+			}
+			Array.Reverse(reverseArray);
+            return String.Join("", reverseArray);
+        }
+
+        static string ReverseName2(string input)
+        {
+            var reverseArray2 = new char[input.Length];
+            for (var i = input.Length; i > 0; i--)
+            {
+                reverseArray2[input.Length - i] = input[i - 1];
+                //Manually reversing values between two arrays
+                //reverse# goes up, input# goes down
+            }
+            return new string(reverseArray2).ToLower();
+        }
+
+        /// <summary>
+        /// Write a program and ask the user to enter 5 numbers. If a number has 
         /// been previously entered, display an error message and ask the user 
         /// to re-try. Once the user successfully enters 5 unique numbers, sort 
         /// them and display the result on the console.
-		/// </summary>
-		public void Mission3()
+        /// </summary>
+        public void Mission3()
         {
             Console.WriteLine("Please input 5 numbers : ");
 			//method1
@@ -92,11 +105,10 @@ namespace CSharpBasic_ArraysLists
             {
                 var input3 = Convert.ToInt32(Console.ReadLine());
                 var a = Array.IndexOf(arrayNumbers, input3);
-				//careful VS doesn't warn when comparing str and int in IndexOf of arrays
+				//careful VS doesn't warn when comparing string and int in IndexOf of Arrays
                 var b = listNumbers.IndexOf(input3);
                 if (a == -1 && b == -1)//can simplify by removing b condition
                 {
-
                     arrayNumbers[i] = input3;
                     listNumbers.Add(input3);
                 }
@@ -109,13 +121,13 @@ namespace CSharpBasic_ArraysLists
                 }
             }
 			Array.Sort(arrayNumbers);
-			Console.WriteLine("Sorted array");
+            Console.WriteLine("Sorted array : ");
 			foreach (var number in arrayNumbers)
 			{
 				Console.WriteLine(number);            
 			}
 			listNumbers.Sort();
-			Console.WriteLine("Sorted list");
+            Console.WriteLine("Sorted list : ");
 			foreach (var number in listNumbers)
 			{
 				Console.WriteLine(number);
@@ -159,37 +171,44 @@ namespace CSharpBasic_ArraysLists
 				}
                 listNumbers3.Add(Convert.ToInt32(input5));
             }
-            var countIndex = 0;//method1
+			//method1
+            var countIndex = 0;
+            //method2
             var listNumbersUnique = new List<int>();
 			foreach(var number in listNumbers3)
             {
                 if (listNumbers3.IndexOf(number) == countIndex)
-                    //This is a sneaky bypass, takes advantage of IndexOf only
-                    //registering the first of any one unique number
+                //This is a sneaky bypass, takes advantage of IndexOf only
+                //registering the first of any one unique number
                 {
                     Console.WriteLine("Unique number via method 1 : " + number);
                 }
                 countIndex++;
-                if (!listNumbersUnique.Contains(number))
-                {
-                    listNumbersUnique.Add(number);
-                }
+                GetUniqueNumberIntoList(listNumbersUnique, number);
             }
-            foreach(var number in listNumbersUnique)
+            foreach (var number in listNumbersUnique)
             {
                 Console.WriteLine("Unique number via method 2 : " + number);
             }
         }
 
-		/// <summary>
-		/// Write a program and ask the user to supply a list of comma separated 
+        static void GetUniqueNumberIntoList(List<int> listNumbersUnique, int uniqueNumber)
+        {
+            if (!listNumbersUnique.Contains(uniqueNumber))
+            {
+                listNumbersUnique.Add(uniqueNumber);
+            }
+        }
+
+        /// <summary>
+        /// Write a program and ask the user to supply a list of comma separated 
         /// numbers (e.g 5, 1, 9, 2, 10). If the list is empty or includes less 
         /// than 5 numbers, display "Invalid List" and ask the user to re-try; 
         /// otherwise, display the 3 smallest numbers in the list.
-		/// </summary>
-		public void Mission5()
+        /// </summary>
+        public void Mission5()
         {
-            /*This works but I don't understand it fully
+            /*This works but I don't understand it fully, lineListInteger
             while (true)
             {
 				Console.WriteLine("Please input a line of at least 5 numbers(comma to seperate) : ");

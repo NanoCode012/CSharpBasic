@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace CSharpBasic_Text
@@ -44,6 +43,53 @@ namespace CSharpBasic_Text
                 " amazingly perpetually impossiblely the longest sentence, NOT.";
             var summarizedText = StringSummarizer.Summarize(text);
             Console.WriteLine("summarizedText : " + summarizedText);
+
+            //StringBuilder
+            var build = new StringBuilder();
+            build.Append('_',10);//we can chain these because they don't return void
+            build.AppendLine();
+            build.Append("Title");
+            build.AppendLine()//an ex. of chaining, can make it longer, no limit
+                 .Append('_', 10);//do it to be more clean
+            Console.WriteLine("Build : \n" + build);
+            Console.WriteLine();
+            build.Replace('_','-');
+			Console.WriteLine("build : \n" + build);
+            Console.WriteLine();
+            build.Remove(0,10);
+            Console.WriteLine("buildr : \n" + build);
+			Console.WriteLine();
+            build.Insert(0,new string('+',10),1);
+            Console.WriteLine("builds : \n" + build);
+
+            const int passLength = 8;
+            var password = new StringBuilder();
+            var password2 = new StringBuilder();
+            var arrayPassword = new char[8];
+            var random = new Random();
+            for (var i = 0; i < passLength; i++)
+            {
+                arrayPassword[i] = (char)('a' + random.Next(0, 26));
+            }
+            password.Append(arrayPassword);
+            for (var i = 0; i < passLength; i++)
+            {
+                password2.Append((char)('a' + random.Next(0,26)));
+            }
+            Console.WriteLine("Password : " + password);
+            Console.WriteLine("Password2 : " + password2);
+            foreach(var pass in arrayPassword)
+            {
+                Console.WriteLine("Pass : " + pass);
+            }
+
+            ///Constructor
+            var examples = new Examples();
+            //examples.Mission1();
+            //examples.Mission2();
+            //examples.Mission3();
+            //examples.Mission4();
+            examples.Mission5();
         }
     }
 }
