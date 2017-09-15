@@ -1,12 +1,11 @@
-﻿using CSharpBasic_NonPrimitiveTypes.Math;
+﻿using CSharpBasic_NonPrimitiveTypes.Math;//to access Calculator.cs
 using static System.Console; //suggested by Intellisense(IS)
-
 
 namespace CSharpBasic_NonPrimitiveTypes
 {
 	public enum ShippingMethods
 	{
-		WeGo = 0,
+		WeGo = 0,//can set value manually, or it'll assign automatically
 		Nuggat = 1,
 		NotsoFast = 2
 	}
@@ -14,25 +13,28 @@ namespace CSharpBasic_NonPrimitiveTypes
     {
         public static void Main(string[] args)
         {
-            //Initiate object 'john'. Can use var, cuz Intellisense(IS)
+            //Initiate object 'john'. Can use var, cuz Intellisense(IS) recognise
             var john = new Person();
             john.FirstName = "John";
             john.LastName = "Nodes";
             john.Introduce();
-            WriteLine(Calculator.Add(4, 8));
+
+            WriteLine(Calculator.Add(4, 8));//static calculator, no need to initialize
 
             //Arrays
-            int[] numbers = { 0, 1, 2 };    //<- this is simplified version of
-                                            //int[] a = new int[#];
+            int[] numbers = { 0, 1, 2 };//<- this is simplified version of
+                                        //int[] a = new int[#];
             WriteLine(numbers[0]);
             WriteLine(numbers[1]);
             WriteLine(numbers[2]);
+
             var name = new string[3];
             name[0] = "Melly";
             name[1] = "Boon";
             WriteLine(name[0]);
             WriteLine(name[1]);
             WriteLine(name[2]);
+
             var isDone = new bool[3];
             isDone[0] = true;
             WriteLine(isDone[0]);
@@ -42,16 +44,17 @@ namespace CSharpBasic_NonPrimitiveTypes
             //Strings
             var firstName = "Lazzy";
             var lastName = "Tools";
-            var fullName = firstName + " " + lastName;//contaconation
-            var myFullName = string.Format("Name is {0} {1}", firstName, lastName);//format string
+            var fullName = firstName + " " + lastName;//concatonation
+            var myFullName = string.Format("Name is {0} {1}", firstName, lastName);//String.Format()
             var names = new string[2] { firstName, lastName };
-            var newFullName = string.Join(", ", names);//seperator string
+            var newFullName = string.Join(", ", names);//join string from array
             WriteLine(fullName);
             WriteLine(myFullName);
             WriteLine(newFullName);
+
             var verbatimString =
 @"Look into the following path.
-D:\folder9\folder10."; //use @ sign to render escape signs useless
+D:\folder9\folder10."; //use @ sign to render escape signs(\n \t) useless
             WriteLine(verbatimString);
 
             //Enums
@@ -59,9 +62,11 @@ D:\folder9\folder10."; //use @ sign to render escape signs useless
             WriteLine((int)deliver);
             var deliveryID = 2;
             WriteLine((ShippingMethods)deliveryID);//Cast, change int to enum
-            WriteLine(CheckExit(2));//Another way of doing the above, but complex
+            WriteLine(ConvertToShippingMethods(2));//Another way of doing the above, but complex
             WriteLine(System.Convert.ToString(deliver));//Change enum to string
-            WriteLine(deliver.ToString());//Same as above, without System namespace
+            //but Console.WriteLine automatically do .ToString already, so above is redundant
+            WriteLine(deliver.ToString());//Another way of doing the above
+           
             //Parse from string to enum
             var deliverName = "Nuggat";
             var DeliverName = (ShippingMethods)System.Enum.Parse(typeof(ShippingMethods), deliverName);
@@ -85,6 +90,28 @@ D:\folder9\folder10."; //use @ sign to render escape signs useless
             WriteLine(car.Age.ToString());
         }
 
+        //a bit out of topic, but good to know nevertheless
+		static ShippingMethods ConvertToShippingMethods(int a)
+		{
+            ShippingMethods name;
+			switch (a)
+			{
+				case 0:
+					name = ShippingMethods.WeGo;
+					break;
+				case 1:
+					name = ShippingMethods.Nuggat;
+					break;
+				case 2:
+					name = ShippingMethods.NotsoFast;
+					break;
+				default:
+					name = ShippingMethods.WeGo;
+					break;
+			}
+			return name;
+		}
+
         public static void IncreaseByTen(int number)//testing with value types
         {
             number += 10;
@@ -94,27 +121,6 @@ D:\folder9\folder10."; //use @ sign to render escape signs useless
             car.Age += 20;                  //object 'car' is copied
         }
 
-		//Something a little extra, not quite in right section, but meh!
-		public static ShippingMethods CheckExit(int a)
-		{
-			ShippingMethods typo;
-			switch (a)
-			{
-				case 0:
-					typo = ShippingMethods.WeGo;
-					break;
-				case 1:
-					typo = ShippingMethods.Nuggat;
-					break;
-				case 2:
-					typo = ShippingMethods.NotsoFast;
-					break;
-				default:
-					typo = ShippingMethods.WeGo;
-					break;
-			}
-			return typo;
-		}
     }
 
 	
