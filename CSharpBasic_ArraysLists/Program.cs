@@ -43,7 +43,7 @@ namespace CSharpBasic_ArraysLists
             //Lists
             var listNumbers = new List<int> { 50, 60, 70, 80 };
             listNumbers.Add(100);
-            listNumbers.AddRange(new int[] {5,70,8,70});
+            listNumbers.AddRange(new int[] {5,70,70,70});
             Console.WriteLine("List list: ");
             foreach(var number in listNumbers)
             {
@@ -61,7 +61,10 @@ namespace CSharpBasic_ArraysLists
             for (var i = 0; i < listNumbers.Count; i++)//To remove all 70s
             {
                 if (listNumbers[i] == 70)
-                    listNumbers.Remove(listNumbers[i]);
+                {
+					listNumbers.Remove(listNumbers[i]);
+                    i--;
+                }
             }
             Console.WriteLine("List after remove all 70 : ");
             foreach (var number in listNumbers)
