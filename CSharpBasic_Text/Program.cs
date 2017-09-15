@@ -49,8 +49,8 @@ namespace CSharpBasic_Text
             build.Append('_',10);//we can chain these because they don't return void
             build.AppendLine();
             build.Append("Title");
-            build.AppendLine()//an ex. of chaining, can make it longer, no limit
-                 .Append('_', 10);//do it to be more clean
+            build.AppendLine()//an example of chaining, do it to be more clean
+				 .Append('_', 10);
             Console.WriteLine("Build : \n" + build);
             Console.WriteLine();
             build.Replace('_','-');
@@ -89,7 +89,7 @@ namespace CSharpBasic_Text
             //examples.Mission2();
             //examples.Mission3();
             //examples.Mission4();
-            examples.Mission5();
+            //examples.Mission5();
         }
     }
 }

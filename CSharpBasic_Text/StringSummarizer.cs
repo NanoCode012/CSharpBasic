@@ -6,44 +6,65 @@ namespace CSharpBasic_Text
     public class StringSummarizer
     {
 		public static string Summarize(string text, int maxLength = 50)
-		{
-			//method1
-			//var lastSpace = 0;
-			var show_text = String.Empty;
-			if (text.Length > maxLength)
-			{
-				if (text[maxLength] == ' ')
-				{
-					show_text = text.Substring(0, maxLength);
-					//Console.WriteLine("ShowText : " + show_text + "...");
-				}
-				else
-				{
-					//This works too. It is basically the same as LastIndexOf
-					//This code if code block can be shortened, but kept for
-					//self others to understand the code
+        {
+            //method1
+            var show_text = String.Empty;
+            show_text = Summarize1(text, maxLength);
+            //method2
+            //show_text = Summarize2(text, maxLength);
+            return show_text;
+        }
+
+
+
+        private static string Summarize1(string text, int maxLength)
+        {
+            string show_text = String.Empty;
+            if (text.Length > maxLength)
+            {
+                if (text[maxLength] != ' ')
+                {
 					//method1_0
-					/*for (var i = 0; i < maxLength; i++)
-					{
-						if(text[i] == ' ')
-						{
-							lastSpace = i;
-						}
-					}*/
-					//var show_text = text.Substring(0, lastSpace);
-					//method1_2
-					show_text = text.Substring(0, maxLength);
-					show_text = text.Substring(0, show_text.LastIndexOf(' '));
-					//Console.WriteLine("show_text : " + show_text + "...");
+					//show_text = ShortenStringToLastWhitespace1(text, maxLength);
+					//method1_1
+					show_text = ShortenStringToLastWhitespace2(text, maxLength);
+                }
+            }
+            else
+            {
+                show_text = text;
+            }
+
+            return show_text;
+        }
+
+
+
+        static string ShortenStringToLastWhitespace1(string text, int maxLength)
+        {
+            var lastSpace = 0;
+			for (var i = 0; i < maxLength; i++)
+			{
+				if (text[i] == ' ')
+				{
+					lastSpace = i;
 				}
 			}
-			else
-			{
-				show_text = text;
-				Console.WriteLine("show_text : " + show_text);
-			}
-			//method2
-			//A harsher way to do the method above
+            var show_text = text.Substring(0, lastSpace);
+            return show_text + "...";
+        }
+
+		static string ShortenStringToLastWhitespace2(string text, int maxLength)
+		{
+			string show_text = text.Substring(0, maxLength);
+			show_text = text.Substring(0, show_text.LastIndexOf(' '));
+			return show_text + "...";
+		}
+
+		private static string Summarize2(string text, int maxLength)
+		{
+			//A harsher way to do the method1
+            string show_text = String.Empty;
 			if (text.Length > maxLength)
 			{
 				var words = text.Split(' ');
@@ -54,18 +75,18 @@ namespace CSharpBasic_Text
 					sumCharacter += word.Length + 1;//add 1 cuz of space after word
 					if (sumCharacter >= maxLength)
 					{
-						Console.WriteLine("word is where is cuts : " + word);
 						break;
 					}
 					listWords.Add(word);
 				}
-				show_text = String.Join(" ", listWords) + "...";
+                show_text = String.Join(" ", listWords) + "...";
 
 			}
 			else
 			{
-				Console.WriteLine("text : " + text);
+				show_text = text;
 			}
+
 			return show_text;
 		}
     }
