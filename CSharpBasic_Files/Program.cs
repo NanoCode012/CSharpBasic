@@ -61,7 +61,12 @@ namespace CSharpBasic_Files
             var path2 = @"/Users/kevinvong/Desktop/Visual Studio/CSharpBasic/CSharpBasic_Files/myTextFile2.txt";
             Console.WriteLine("Path.GetExtension(): " + Path.GetExtension(path2));
             Console.WriteLine("Path.GetFileName(): " + Path.GetFileName(path2));
-            Console.WriteLine("Path.GetDirectory(): " + Path.GetDirectoryName(path2));
+            Console.WriteLine("Path.GetDirectoryName(): " + Path.GetDirectoryName(path2));
+
+            ///Constructor
+            Examples examples = new Examples();
+            //examples.Mission1();
+            //examples.Mission2();
         }
     }
 }
